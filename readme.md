@@ -10,6 +10,14 @@ npm v6.5.0
 express --view=ejs <name>
 ```
 
+## 启动步骤
+
+```shell
+npm install
+npm start
+npm start
+```
+
 ## 相关配置
 
 - eslint
