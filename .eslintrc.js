@@ -1,13 +1,19 @@
 module.exports = {
   env: {
-    browser: true,
-    node: true,
-    es6: true
+    browser: true, es6: true,
   },
-  rules: {
-    quotes: "single",
-  },
+  extends: ['react-app', 'plugin:prettier/recommended'],
   parserOptions: {
-    ecmaVersion: 6
-  }
+    ecmaFeatures: { jsx: true, },
+    ecmaVersion: 2018, sourceType: 'module',
+  },
+  "extends": "eslint:recommended",
+  plugins: ['react'],
+  rules: {
+    'linebreak-style': ['error', 'unix'],
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'prettier/prettier': 'warn',
+      quotes: ['error', 'single'],
+  },
 };
+
