@@ -33,3 +33,14 @@ npm start
       "push": "git pull && git add . && git commit -m 'add' && git push",
     },
   ```
+
+## pm2 进程管理启动
+
+```
+npm install pm2 -g
+
+pm2 start ./bin/www
+
+pm2 stop ./bin/www
+
+```
