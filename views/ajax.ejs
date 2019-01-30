@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>ajax基础demo</title>
+    <title><%= title %></title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
 
@@ -13,6 +13,16 @@
       这里仅说明ajax的用途以及介绍 axios.js 库的使用 , 具体的 axios
       信息以及说明可自行百度
     </div>
+    <h1><%= title %></h1>
+    <p><%= body %></p>
+    <div>
+      <p>数据:</p>
+      <%= data[0] %>
+    </div>
+    <p>productId is <%= data.productId %></p>
+    <p>price is <%= data.price %></p>
+    <p>image is <%= data.image %></p>
+
     <button id="send">点我请求白熊阅读首页</button>
     <button id="send2">点我请求本地文件</button>
     <div id="wapper"></div>

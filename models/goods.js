@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const produtSchema = new Schema({
-  proudctId: String,
-  proudctIdName: String,
+  productId: String,
+  productIdName: String,
   price: Number,
   image: String
 });

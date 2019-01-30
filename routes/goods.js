@@ -16,11 +16,6 @@ mongoose.connection.on('disconnected', () => {
   console.log('MongoDB connected disconnected.');
 });
 
-const data = {
-  name: '梅昌亮',
-  age: '24'
-};
-
 router.get('/', (req, res, next) => {
   Goods.find({}, (err, doc) => {
     if (err) {
@@ -41,10 +36,19 @@ router.get('/', (req, res, next) => {
   });
 });
 router.get('/page', (req, res, next) => {
-  res.render('ajax', {
-    title: 'Express',
-    body: 'Express is very good xxx',
-    data
+  Goods.find({}, (err, doc) => {
+    if (err) {
+      res.json({
+        status: '-1',
+        msg: err.message
+      });
+    } else {
+      res.render('ajax', {
+        title: 'ajax 同步加异步',
+        body: 'Express 加上同步加异步',
+        data: doc
+      });
+    }
   });
 });
 module.exports = router;
