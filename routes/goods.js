@@ -40,4 +40,11 @@ router.get('/', (req, res, next) => {
     }
   });
 });
+router.get('/page', (req, res, next) => {
+  res.render('ajax', {
+    title: 'Express',
+    body: 'Express is very good xxx',
+    data
+  });
+});
 module.exports = router;
