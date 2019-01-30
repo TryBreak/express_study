@@ -1,4 +1,10 @@
 const mongoose = require('mongoose');
-console.log(mongoose);
+const Schema = mongoose.Schema;
+const produtSchema = new Schema({
+  proudctId: String,
+  proudctIdName: String,
+  price: Number,
+  image: String
+});
 
-module.exports = {};
+module.exports = mongoose.model('Good', produtSchema);

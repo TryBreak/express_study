@@ -18,9 +18,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //一级路由
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 app.use('/', indexRouter);
+
+var usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+
+var goods = require('./routes/goods');
+app.use('/goods', goods);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
