@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "push": "git pull && git add . && git commit -m 'add' && git push",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "serve": "pm2 restart ./bin/www",
+    "pm2watch": "pm2 start ./bin/www --watch",
+    "end": "pm2 stop ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",

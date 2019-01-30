@@ -8,7 +8,7 @@ const data = {
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Express',
-    body: 'Express is very good',
+    body: 'Express is very good xxx',
     data
   });
 });
