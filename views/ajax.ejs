@@ -17,11 +17,12 @@
     <p><%= body %></p>
     <div>
       <p>数据:</p>
-      <%= data[0] %>
+      <%= list[0].proudctid %> <br />
+      <%= list[0].proudctIdname %><br />
+      <%= list[0].image %><br />
+      <%= list[0]._id %><br />
+      <%= list[0].price %><br />
     </div>
-    <p>productId is <%= data.productId %></p>
-    <p>price is <%= data.price %></p>
-    <p>image is <%= data.image %></p>
 
     <button id="send">点我请求白熊阅读首页</button>
     <button id="send2">点我请求本地文件</button>
@@ -54,7 +55,6 @@
       method: "get",
       url: "/goods"
     }).then(function(res) {
-      alert("请求成功");
       console.log(res);
       console.log(res.data);
     });

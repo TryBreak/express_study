@@ -43,10 +43,11 @@ router.get('/page', (req, res, next) => {
         msg: err.message
       });
     } else {
+      console.log(doc);
       res.render('ajax', {
         title: 'ajax 同步加异步',
         body: 'Express 加上同步加异步',
-        data: doc
+        list: doc
       });
     }
   });
