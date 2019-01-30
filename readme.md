@@ -44,3 +44,9 @@ pm2 start ./bin/www
 pm2 stop ./bin/www
 
 ```
+
+## 调用数据库
+
+```shell
+npm install mongoose
+```
