@@ -20,10 +20,18 @@ router.post('/', (req, res, next) => {
   let page = parseInt(req.param('page'));
   let pageSize = parseInt(req.param('size'));
   let sort = parseInt(req.param('sort'));
-  let leve = parseInt(req.param('leve'));
+  let min = parseInt(req.param('min'));
+  let max = parseInt(req.param('max'));
+
   let skip = (page - 1) * pageSize;
 
-  let params = {};
+  let params = {
+    price: {
+      $gt: min,
+      $lte: max
+    }
+  };
+
   let goodsModel = Goods.find(params)
     .skip(skip)
     .limit(pageSize);
