@@ -16,8 +16,20 @@ mongoose.connection.on('disconnected', () => {
   console.log('MongoDB connected disconnected.');
 });
 
-router.get('/', (req, res, next) => {
-  Goods.find({}, (err, doc) => {
+router.post('/', (req, res, next) => {
+  let page = parseInt(req.param('page'));
+  let pageSize = parseInt(req.param('size'));
+  let sort = parseInt(req.param('sort'));
+  let leve = parseInt(req.param('leve'));
+  let skip = (page - 1) * pageSize;
+
+  let params = {};
+  let goodsModel = Goods.find(params)
+    .skip(skip)
+    .limit(pageSize);
+  goodsModel.sort({ price: sort });
+
+  goodsModel.exec((err, doc) => {
     if (err) {
       res.json({
         status: '-1',

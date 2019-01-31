@@ -52,8 +52,9 @@
   // https://www.jianshu.com/p/b4c5b0c167c7
   document.getElementById("send2").onclick = function() {
     axios({
-      method: "get",
-      url: "/goods"
+      method: "post",
+      url: "/goods",
+      data: { page: 1, size: 4, sort: -1, min: 0, max: 100 }
     }).then(function(res) {
       console.log(res);
       console.log(res.data);
