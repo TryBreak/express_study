@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Goods = require('../models/goods');
+const User = require('../models/user.js');
 //链接MongoDB数据库
 const dbUrlRoot = 'mongodb://meichangliang:123123@192.168.31.156:27017/demo';
 const dbUrl = 'mongodb://192.168.31.156:27017/demo';
@@ -63,12 +64,22 @@ router.get('/page', (req, res, next) => {
         msg: err.message
       });
     } else {
-      console.log(doc);
       res.render('ajax', {
         title: 'ajax 同步加异步',
         body: 'Express 加上同步加异步',
         list: doc
       });
+    }
+  });
+});
+
+router.get('/user', (req, res, next) => {
+  res.json({
+    status: '0',
+    msg: '',
+    result: {
+      count: 111,
+      list: 222
     }
   });
 });

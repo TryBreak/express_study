@@ -25,7 +25,8 @@
     </div>
 
     <button id="send">点我请求白熊阅读首页</button>
-    <button id="send2">点我请求本地文件</button>
+    <button id="send2">请求商品列表</button>
+    <button id="send3">请求用户列表</button>
     <div id="wapper"></div>
   </body>
 </html>
@@ -55,6 +56,16 @@
       method: "post",
       url: "/goods",
       data: { page: 1, size: 4, sort: -1, min: 0, max: 100 }
+    }).then(function(res) {
+      console.log(res);
+      console.log(res.data);
+    });
+  };
+
+  document.getElementById("send3").onclick = function() {
+    axios({
+      method: "get",
+      url: "/goods/user"
     }).then(function(res) {
       console.log(res);
       console.log(res.data);
