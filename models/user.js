@@ -4,10 +4,7 @@ const produtSchema = new Schema({
   userId: String,
   userName: String,
   userAge: Number,
-  class: {
-    name: String,
-    num: Number
-  }
+  carList: []
 });
 
-module.exports = mongoose.model('User', produtSchema, 'users');
+module.exports = mongoose.model('Userxxx', produtSchema, 'user');

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Goods = require('../models/goods');
-const User = require('../models/user.js');
 //链接MongoDB数据库
 const dbUrlRoot = 'mongodb://meichangliang:123123@192.168.31.156:27017/demo';
 const dbUrl = 'mongodb://192.168.31.156:27017/demo';
@@ -74,12 +73,40 @@ router.get('/page', (req, res, next) => {
 });
 
 router.get('/user', (req, res, next) => {
-  res.json({
-    status: '0',
-    msg: '',
-    result: {
-      count: 111,
-      list: 222
+  const Users = require('../models/user.js');
+  Users.findOne({ userId: '000' }, (err, doc) => {
+    if (err) {
+      res.json({
+        status: '-1',
+        msg: err.message
+      });
+    } else {
+      Goods.findOne({ proudctId: '2019130000' }, (err2, doc2) => {
+        if (err2) {
+          res.json({
+            status: '-1',
+            msg: err.message
+          });
+        } else {
+          doc.carList.push(doc2);
+          doc.save((err3, doc3) => {
+            if (err3) {
+              res.json({
+                status: '-1',
+                msg: err.message
+              });
+            } else {
+              res.json({
+                status: '0',
+                msg: '',
+                result: {
+                  list: doc3
+                }
+              });
+            }
+          });
+        }
+      });
     }
   });
 });
