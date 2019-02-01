@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Goods = require('../models/goods');
+const { DB_URL } = require('../base.js');
 //链接MongoDB数据库
-const dbUrlRoot = 'mongodb://meichangliang:123123@192.168.31.156:27017/demo';
-const dbUrl = 'mongodb://192.168.31.156:27017/demo';
+const dbUrlRoot = DB_URL + '/demo';
 mongoose.connect(dbUrlRoot);
 mongoose.connection.on('connected', () => {
   console.log('MongoDB connected success.');
@@ -15,7 +15,6 @@ mongoose.connection.on('error', () => {
 mongoose.connection.on('disconnected', () => {
   console.log('MongoDB connected disconnected.');
 });
-
 router.post('/', (req, res, next) => {
   let page = parseInt(req.param('page'));
   let pageSize = parseInt(req.param('size'));
