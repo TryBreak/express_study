@@ -29,8 +29,8 @@ const data = [
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'Express',
-    body: 'Express is very good xxx',
+    title: 'Welcome',
+    body: '这里是首页,此处传为 arr',
     data
   });
 });
